@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cssfolder/bootstrap.min.css">
+    <title>jquery example</title>
+
+    <style>
+        .msg{
+            color: red;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" placeholder="name@example.com" oninput="hidemsg()">
+        <p id="error" class="msg">*Email is required</p>
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+
+      <div class="col-auto">
+        <button type="submit" class="btn btn-primary mb-3" onclick="call()">Confirm identity</button>
+      </div>
+      <hr>
+      <div>
+        <p id="p1"> When mouse in entered </p>
+      </div>
+      <hr>
+      <div>
+        <p id="p2"> When mouse leaves </p>
+      </div>
+      <hr>
+      <div>
+        <p id="p3"> Hover over me! </p>
+      </div>
+       <br>
+       <hr>
+      <div>
+        Name: <input type="text" name="fullname"><br>
+        Email: <input type="text" name="email">
+      </div>
+      <br><br><hr><br>
+
+        
+      <div class="row">
+        <div class="col">
+          <input type="text" class="form-control" placeholder="First name" id="name1" aria-label="First name">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Last name" id="name2" aria-label="Last name">
+        </div>
+        <br><br>
+        <button type="submit" class="btn btn-primary mb-3" onclick="hidefunc()">HIDE</button>
+        <br><br>
+        <button type="submit" class="btn btn-primary mb-3" onclick="showfunc()">SHOW</button>
+
+      </div>
+
+
+    </div>
+
+    <script src="jsfolder/bootstrap.bundle.min.js"></script>
+    <script src="jsfolder/jquery-3.7.1.js"></script>
+    
+     <script>
+
+         $("#error").hide();
+         
+        //  to show error msg when we click submit btn without the email input
+         function call()
+         {
+             const mail=$("#email").val();
+             if(!mail)
+             {
+                 $("#error").show();
+             }
+         }
+            
+        //  to hide error msg when input is given
+        function hidemsg()
+        {
+          $("#error").hide();
+        }
+        
+        // mouseenter attribute
+        $(document).ready(function(){
+            $("#p1").mouseenter(function(){
+                alert("YOU COMPLETED");
+            });
+        });
+
+        //mouseleave attribute
+        $(document).ready(function(){
+            $("#p2").mouseleave(function(){
+                alert("BUBYE YOU CAN LEAVE!");
+            });
+        });
+      
+        //hover attribute
+        $(document).ready(function(){
+            $("#p3").hover(function(){
+                alert("WELCOME");
+            },
+            function(){
+                alert("THANKYOU");
+            });
+        });
+
+        //focus attribute
+        $(document).ready(function(){
+            $("input").focus(function(){
+                $(this).css("background-color","yellow")
+            });
+        })
+        
+        //hide function
+        function hidefunc()
+        {
+             $("#name1").hide();
+             $("#name2").hide();
+        }
+        
+        //show function
+        function showfunc()
+        {
+            $("#name1").show();
+            $("#name2").show();
+        }
+
+     </script>
+
+
+</body>
+</html>
